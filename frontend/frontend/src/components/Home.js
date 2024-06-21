@@ -8,8 +8,9 @@ const Home = () => {
   useEffect(() => {
     const fetchRequests = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/requests');
+        const response = await fetch('http://localhost:8000/requests');
         setRequests(response.data.requests);
+        console.log(response);
       } catch (err) {
         setError(err.message);
         console.error('Error fetching data:', err);
